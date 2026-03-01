@@ -98,7 +98,7 @@ const AskAI = () => {
                       : "bg-muted text-foreground rounded-bl-md"
                   }`}
                 >
-                  {msg.content}
+                  <span className="whitespace-pre-wrap">{msg.content}</span>
                 </div>
               </motion.div>
             ))}

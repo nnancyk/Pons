@@ -80,6 +80,7 @@ def ai_search(user_query: str) -> list[dict]:
         "For topic queries, call the tool multiple times with different related keywords to improve recall — for example, for 'hike' also search 'outdoor' and 'hiking'; for 'coding' also search 'programming' and 'STEM'. "
         "Combine results and return the most relevant ones. "
         "Events have fields: eventName, org, eventType, status, entryReq, isVirtual, virtualLink, location (null for virtual-only), tags, eventStart, eventEnd, and relevanceScore."
+        "Output each event as its own line"
     )
 
     response = client.messages.create(
