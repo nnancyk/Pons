@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Plus, Trash2, HelpCircle } from "lucide-react";
 import {
   Dialog,
@@ -23,12 +22,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { sampleEvents } from "@/data/events";
 import type { Event } from "@/data/events";
+import { getLocationString } from "@/data/events";
+// getLocationString used in matchCondition below
 
 // --- Types ---
 
-type FieldKey = "rsoName" | "title" | "location" | "date" | "time" | "tags" | "status" | "access";
+type FieldKey = "orgName" | "eventName" | "location" | "eventStart" | "tags" | "status" | "entryReq" | "eventType";
 type Operator = "contains" | "not_contains" | "equals" | "not_equals" | "starts_with" | "ends_with";
 type GroupLogic = "and" | "or";
 
@@ -51,14 +51,14 @@ export interface AdvancedSearchState {
 }
 
 const fieldOptions: { value: FieldKey; label: string }[] = [
-  { value: "rsoName", label: "RSO" },
-  { value: "title", label: "Event Title" },
+  { value: "orgName", label: "RSO" },
+  { value: "eventName", label: "Event Title" },
   { value: "location", label: "Location" },
-  { value: "date", label: "Date" },
-  { value: "time", label: "Time" },
+  { value: "eventStart", label: "Date/Time" },
   { value: "tags", label: "Tags" },
   { value: "status", label: "Status" },
-  { value: "access", label: "Access" },
+  { value: "entryReq", label: "Entry" },
+  { value: "eventType", label: "Event Type" },
 ];
 
 const operatorOptions: { value: Operator; label: string }[] = [
@@ -70,16 +70,8 @@ const operatorOptions: { value: Operator; label: string }[] = [
   { value: "ends_with", label: "Ends with" },
 ];
 
-// Derive unique values per field for suggestions
-const fieldValues: Record<FieldKey, string[]> = {
-  rsoName: [...new Set(sampleEvents.map((e) => e.rsoName))].sort(),
-  title: [...new Set(sampleEvents.map((e) => e.title))].sort(),
-  location: [...new Set(sampleEvents.map((e) => e.location))].sort(),
-  date: [...new Set(sampleEvents.map((e) => e.date))].sort(),
-  time: [...new Set(sampleEvents.map((e) => e.time))].sort(),
-  tags: [...new Set(sampleEvents.flatMap((e) => e.tags))].sort(),
-  status: ["ongoing", "canceled", "delayed"],
-  access: ["open", "members"],
+const fieldValues: Partial<Record<FieldKey, string[]>> = {
+  status: ["confirmed", "canceled", "pending"],
 };
 
 let idCounter = 0;
@@ -87,7 +79,7 @@ const uid = () => `adv-${++idCounter}`;
 
 const makeCondition = (): Condition => ({
   id: uid(),
-  field: "rsoName",
+  field: "orgName",
   operator: "contains",
   value: "",
 });
@@ -105,9 +97,21 @@ export const emptyAdvancedSearch: AdvancedSearchState = {
 
 // --- Filtering logic ---
 
+function getFieldValue(event: Event, field: FieldKey): string {
+  switch (field) {
+    case "orgName":    return event.org.orgName;
+    case "eventName":  return event.eventName;
+    case "location":   return getLocationString(event);
+    case "eventStart": return event.eventStart ?? "";
+    case "tags":       return event.tags.join(" ");
+    case "status":     return event.status ?? "";
+    case "entryReq":   return event.entryReq ?? "";
+    case "eventType":  return event.eventType ?? "";
+  }
+}
+
 function matchCondition(event: Event, c: Condition): boolean {
-  const rawValue =
-    c.field === "tags" ? event.tags.join(" ") : String(event[c.field]);
+  const rawValue = getFieldValue(event, c.field);
   const val = rawValue.toLowerCase();
   const target = c.value.toLowerCase().trim();
   if (!target) return true; // empty value matches all
@@ -227,10 +231,6 @@ const AdvancedSearchDialog = ({ open, onOpenChange, state, onChange }: Props) =>
   const clearAll = () => {
     onChange({ groupLogic: "and", groups: [makeGroup()] });
   };
-
-  const hasValues = state.groups.some((g) =>
-    g.conditions.some((c) => c.value.trim() !== "")
-  );
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -395,7 +395,7 @@ const AdvancedSearchDialog = ({ open, onOpenChange, state, onChange }: Props) =>
                       </Select>
 
                       {/* Value — use select for fields with few known values */}
-                      {["status", "access"].includes(cond.field) ? (
+                      {cond.field === "status" ? (
                         <Select
                           value={cond.value || undefined}
                           onValueChange={(v) =>

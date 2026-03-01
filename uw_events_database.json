@@ -1,0 +1,359 @@
+[
+    {
+        "eventName": "Air Dry Clay Event",
+        "org": {
+            "orgName": "activeminds.uw",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Social",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "A relaxing night of air dry clay crafting. All supplies will be provided.",
+        "eventStart": "2026-03-05T17:00:00",
+        "eventEnd": "2026-03-05T18:00:00",
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "SAV",
+            "locationRoom": "138",
+            "locationMap": ""
+        },
+        "tags": [
+            "clay",
+            "art",
+            "craft",
+            "social",
+            "free"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "",
+                "externalID": "activeminds.uw",
+                "rawPayload": "Stop by for a relaxing night at our air dry clay event collab!\ud83c\udffaIt is free to attend at SAV 138 on March 5th from 5-6pm. All supplies will be provided!"
+            }
+        ]
+    },
+    {
+        "eventName": "Winter Quarter Makers Fair",
+        "org": {
+            "orgName": "advancing_husky_artistry",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Vendor Fair",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "AHA will be vending at the Winter Quarter Makers Fair, selling a wide variety of crafts and merchandise made by club members.",
+        "eventStart": "2026-02-11T11:00:00",
+        "eventEnd": "2026-02-11T15:00:00",
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Husky Union Building",
+            "locationRoom": null,
+            "locationMap": ""
+        },
+        "tags": [
+            "crafts",
+            "merchandise",
+            "vendor fair",
+            "makers fair"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "",
+                "externalID": "advancing_husky_artistry",
+                "rawPayload": "AHA will be vending at the Winter Quarter Makers Fair! Come check out our booth on February 11th from 11:00am to 3:00pm at the Husky Union Building! We will be selling a wide variety of crafts and merch made by our club members!"
+            }
+        ]
+    },
+    {
+        "eventName": "Alliance for Korea United - UW Chapter First Meeting",
+        "org": {
+            "orgName": "aku_uofwa",
+            "orgType": "RSO",
+            "orgDesc": "Alliance for Korea United - UW Chapter. Strives to advance peace building on the Korean Peninsula based on the vision of the Korean Dream: to build a unified nation rooted in freedom, human rights, and the founding ideal of Honik Ingan - meaning to benefit all humanity."
+        },
+        "eventType": "Meeting",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "First meeting of Alliance for Korea United - UW Chapter. Learn more about the organization's mission to advance peace building on the Korean Peninsula.",
+        "eventStart": "2026-02-04T18:00:00",
+        "eventEnd": "2026-02-04T19:00:00",
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Sieg Hall",
+            "locationRoom": "225",
+            "locationMap": ""
+        },
+        "tags": [
+            "rso",
+            "first meeting",
+            "korean",
+            "peace building"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "https://scontent-lga3-2.cdninstagram.com/v/t51.82787-15/625666029_17853588312657271_8062392185129385651_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QHKvJC8SjnGcf15NnI0g-ZkHgVse3pIhZmx4tvLLiOa5OY6xUE-rffVlrl1aMx1CUc&_nc_ohc=xQuj0Kr4mm0Q7kNvwGvVEYB&_nc_gid=j2McbuI4fQt648aVsSmKog&edm=APs17CUBAAAA&ccb=7-5&oh=00_Aftqcdx8d8WTNlMH0EBarjqz_kTQsuSLelvo08jyeBc_9w&oe=69A9452B&_nc_sid=10d13b",
+                "externalID": "aku_uofwa",
+                "rawPayload": "NEW RSO ON CAMPUS \ud83d\udea8\nWelcome all to Alliance for Korea United - UW Chapter! \u2728\n\nHere, we strive to advance peace building on the Korean Peninsula based on the vision of the Korean Dream: to build a unified nation rooted in freedom, human rights, and the founding ideal of  Honik Ingan - meaning to \"benefit all humanity\". \n\nLearn more at our first meeting on\nFeb. 4th\n6-7Pm\nSieg Hall 225"
+            }
+        ]
+    },
+    {
+        "eventName": "Queer Valentines Craft Night",
+        "org": {
+            "orgName": "advancing_husky_artistry",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Social/Workshop",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "Queer Valentines Craft night in collaboration with the Trans Collective at UW featuring a collaborative drawing activity and open crafting session. AHA meeting starts at 4:00pm with merch return before the collaborative event begins at 4:30pm.",
+        "eventStart": "2026-02-13T16:00:00",
+        "eventEnd": null,
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Smith Hall",
+            "locationRoom": "115",
+            "locationMap": ""
+        },
+        "tags": [
+            "craft",
+            "drawing",
+            "queer",
+            "valentines",
+            "collaborative",
+            "social"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "",
+                "externalID": "advancing_husky_artistry",
+                "rawPayload": "Our meeting this week will be a **Queer Valentines Craft night in collaboration with the Trans Collective at UW!** We will have both a collaborative drawing activity and an open crafting session! The collab officially starts at 4:30, but **AHA will start at 4:00pm, Friday, Smith 115**, as usual! We will do things such as merch return before the collab event starts. We hope to see you then!"
+            }
+        ]
+    },
+    {
+        "eventName": "ADLJ Body Doubling Session",
+        "org": {
+            "orgName": "adlj_uw",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Study/Social",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "Last body doubling session of the quarter. Participants can study together with snacks, beverages, study tools, and fidgets provided. Virtual Zoom option available.",
+        "eventStart": "2026-03-04T15:30:00",
+        "eventEnd": "2026-03-04T17:00:00",
+        "isVirtual": false,
+        "virtualLink": "Contact organizer via Instagram DM for Zoom link",
+        "location": {
+            "locationName": "University of Washington",
+            "locationRoom": "TBD",
+            "locationMap": ""
+        },
+        "tags": [
+            "body doubling",
+            "study session",
+            "snacks",
+            "fidgets",
+            "community",
+            "hybrid"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "https://scontent-mia5-2.cdninstagram.com/v/t51.2885-15/482882850_18006068537721336_4896574466399939979_n.jpg?stp=dst-jpg_e35_s1080x1080_sh0.08_tt6&_nc_ht=scontent-mia5-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2QFw07FTSPuGpLSZRVSP_HVpFPaT_it-k0q8vBMcmdD-v_SLJIbA9r3rSkvqyW6aHXk&_nc_ohc=9V0lxprGNDMQ7kNvwF9aT3_&_nc_gid=gQT1zj28FX-Tdy4jOyoItQ&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfsLiDalNSR6nM7zKQKAUMm_MbyVEHk4xqgim5_epOUgpQ&oe=69A9635E&_nc_sid=10d13b",
+                "externalID": "adlj_uw",
+                "rawPayload": "Have you been to our body doubling events yet? \ud83d\udcda Join us for our last session of this quarter next week on Wednesday from 3:30-5(ish\u2026 stick around as long as you want!) \u2728 We'll have snacks, beverages, study tools, fidgets, and a Zoom option, if you prefer to join from elsewhere. Send us a message for the link! \ud83d\udcd6"
+            }
+        ]
+    },
+    {
+        "eventName": "CSE SAC Office Hours - Student Chat & Feedback",
+        "org": {
+            "orgName": "csesac",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Meeting",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "Come chat with CSE SAC and share your Allen School experience. Discuss curriculum, resources, or anything else. Free candy will be provided. SAC works to amplify student voices and drive real change in the Allen School.",
+        "eventStart": "2026-03-03T13:00:00",
+        "eventEnd": "2026-03-03T14:00:00",
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Undergrad Commons - CSE2",
+            "locationRoom": "CSE2",
+            "locationMap": ""
+        },
+        "tags": [
+            "food",
+            "student-feedback",
+            "recurring",
+            "office-hours"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "https://scontent-hou1-1.cdninstagram.com/v/t51.2885-15/479165847_17947727750935447_3074577148523934913_n.jpg?stp=dst-jpg_e15_fr_s1080x1080_tt6&_nc_ht=scontent-hou1-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QFoh45_l6nk3RtYlrBzpirx9oT83jjoEZAFoBgE6MNTNhdZAYcPWj6xsSFBW0lsclEuWRNR1rbtXFDEjdDhJFYh&_nc_ohc=2ZHc5bHOc5wQ7kNvwE51UdQ&_nc_gid=6sF5Pf_A2_qzi8uXf8w1GA&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afvcq8EKafx1pphEGn8aEdAZ4ti-izf0rrUabGoETuXFcw&oe=69A936C6&_nc_sid=10d13b",
+                "externalID": "csesac",
+                "rawPayload": "Come chat with us and share your Allen School experience! We would love to hear your thoughts about curriculum, resources, or anything else. We will be handing out free candy! \ud83c\udf6c \ud83d\uddd3\ufe0fWhen: Every Tuesday and Friday, 1:00-2:00pm \ud83d\udccdWhere: Undergrad Commons - CSE2"
+            }
+        ]
+    },
+    {
+        "eventName": "Vespers",
+        "org": {
+            "orgName": "acf_uw",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Social",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "Evening of fellowship and fun with pizza. Transportation available via bus line 20 or arranged rides upon request.",
+        "eventStart": "2026-03-06T19:00:00",
+        "eventEnd": null,
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Greenlake Meridian House",
+            "locationRoom": null,
+            "locationMap": ""
+        },
+        "tags": [
+            "food",
+            "pizza",
+            "fellowship",
+            "social",
+            "greenlake"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "https://instagram.com/acf_uw",
+                "externalID": "acf_uw",
+                "rawPayload": "\ud83c\udf55\ud83c\udf1f Join us for Vespers this Friday at 7pm at the Greenlake Meridian House! We've got the pizza covered, all we need is you (and maybe a friend or two)! \ud83d\ude8d\ud83d\udc65 You can hop on the 20 bus line, or shoot us a message if you need a ride \u2013 we'll do our best to arrange one for you! Let's gather for an evening of fellowship and fun. We hope to see you there!"
+            }
+        ]
+    },
+    {
+        "eventName": "Research Participation Information Session with Dr. Sama Ahmed",
+        "org": {
+            "orgName": "uw.aim",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Workshop",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "Learn about Dr. Sama Ahmed's research and research participation opportunities. Attendees will learn firsthand about a research study and determine if research is a good fit for them.",
+        "eventStart": "2026-03-02T00:00:00Z",
+        "eventEnd": null,
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Unknown",
+            "locationRoom": null,
+            "locationMap": ""
+        },
+        "tags": [
+            "research",
+            "workshop",
+            "academic"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/642476623_17957945913065939_2078998750433761183_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2QHOhFSesDqoZcfzumSpXb_VopAAJtnzlWHpgoo6LWDve-D4aiDL0NqAkVbr2tvMLPWsBROuV7aghFoutkqz65jS&_nc_ohc=vt48FZT83IwQ7kNvwE3jeEd&_nc_gid=ZwqVEMuEnSDxbH8KeLZp4Q&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfsONK7VyWXQr0hrGOcOyrjDiG-_wA7rtFmOxF5UkRNR7g&oe=69A94CF9&_nc_sid=10d13b",
+                "externalID": "uw.aim",
+                "rawPayload": "Are you interested in participating in research? Don't know where to start? Join us on March 2nd and learn about Dr. Sama Ahmed's research! Learn firsthand about a research study and see if research is a great fit for you!!"
+            }
+        ]
+    },
+    {
+        "eventName": "Suturing Clinic",
+        "org": {
+            "orgName": "thrive_uw",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Workshop",
+        "status": "confirmed",
+        "entryReq": "RSVP Required",
+        "eventDesc": "Hands-on Suturing Clinic where you'll learn core techniques. All materials provided with guided practice with peers. Limited spots available.",
+        "eventStart": "2026-02-24T18:00:00",
+        "eventEnd": "2026-02-24T19:00:00",
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "Health Sciences Education Building (HSEB)",
+            "locationRoom": "145",
+            "locationMap": ""
+        },
+        "tags": [
+            "suturing",
+            "medical",
+            "hands-on",
+            "workshop",
+            "skills"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "https://instagram.com/thriveuw",
+                "externalID": "thrive_uw",
+                "rawPayload": "SIGNUP IN OUR BIO! Want to feel more confident with suturing skills? \ud83e\udea1 Join THRIVE UW and AIM UW for a hands-on Suturing Clinic where you'll learn core techniques. \u2705 All materials provided \u2705 Guided practice with peers \u2705 Limited spots \u2013 don't wait! \ud83d\udccd HSEB (Health Sciences Education Building), Room 145 \ud83d\udcc5 February 24 \ud83d\udd55 6:00 \u2013 7:00 PM"
+            }
+        ]
+    },
+    {
+        "eventName": "CTRL + A11Y",
+        "org": {
+            "orgName": "iuga.info",
+            "orgType": "RSO",
+            "orgDesc": "University of Washington Club"
+        },
+        "eventType": "Workshop",
+        "status": "confirmed",
+        "entryReq": "Free",
+        "eventDesc": "A fun and informative night exploring accessibility and disability inclusion in tech. Features Kahoot, good vibes, and great conversations.",
+        "eventStart": "2025-05-27T17:00:00",
+        "eventEnd": "2025-05-27T18:00:00",
+        "isVirtual": false,
+        "virtualLink": null,
+        "location": {
+            "locationName": "SAV",
+            "locationRoom": "138",
+            "locationMap": ""
+        },
+        "tags": [
+            "accessibility",
+            "disability inclusion",
+            "tech",
+            "kahoot",
+            "workshop"
+        ],
+        "sources": [
+            {
+                "sourceType": "instagram",
+                "sourceLink": "",
+                "externalID": "iuga.info",
+                "rawPayload": "\ud83d\udcbb\u2728 CTRL + A11Y is here!\nJoin @iuga.uw and @ability_cse for a fun & informative night exploring accessibility and disability inclusion in tech \ud83d\udda4\n\n\ud83d\udccd SAV 138\n\ud83d\uddd3\ufe0f May 27\n\u23f0 5\u20136PM\n\ud83c\udfae Featuring Kahoot, good vibes, and great convos\n\nCome learn, play, and break down barriers in tech together!"
+            }
+        ]
+    }
+]

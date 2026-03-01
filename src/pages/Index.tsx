@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import uwLogo from "@/assets/uw-logo.png";
@@ -16,25 +16,38 @@ import AdvancedSearchDialog, {
   applyAdvancedSearch,
   type AdvancedSearchState,
 } from "@/components/AdvancedSearchDialog";
-import { sampleEvents } from "@/data/events";
+import type { Event } from "@/data/events";
 
 const Index = () => {
+  const [events, setEvents] = useState<Event[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [advancedSearch, setAdvancedSearch] = useState<AdvancedSearchState>(emptyAdvancedSearch);
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [sidebarFilters, setSidebarFilters] = useState<SidebarFilters>(emptySidebarFilters);
 
+  useEffect(() => {
+    fetch("/api/events")
+      .then((r) => r.json())
+      .then(setEvents)
+      .catch(console.error);
+  }, []);
+
+  const categories = useMemo(() => {
+    const types = [...new Set(events.map((e) => e.eventType).filter(Boolean))].sort();
+    return ["All", ...types];
+  }, [events]);
+
   const filteredEvents = useMemo(() => {
-    let result = sampleEvents.filter((event) => {
+    let result = events.filter((event) => {
       const matchesSearch =
         !searchQuery ||
-        event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        event.rsoName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        event.description.toLowerCase().includes(searchQuery.toLowerCase());
+        event.eventName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        event.org.orgName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (event.eventDesc || "").toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchesCategory =
-        selectedCategory === "All" || event.category === selectedCategory;
+        selectedCategory === "All" || event.eventType === selectedCategory;
 
       return matchesSearch && matchesCategory;
     });
@@ -42,7 +55,7 @@ const Index = () => {
     result = applyAdvancedSearch(result, advancedSearch);
     result = applySidebarFilters(result, sidebarFilters);
     return result;
-  }, [searchQuery, selectedCategory, advancedSearch, sidebarFilters]);
+  }, [events, searchQuery, selectedCategory, advancedSearch, sidebarFilters]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -90,20 +103,20 @@ const Index = () => {
           <h2 className="font-display text-3xl text-center text-foreground mb-8">
             This Week's Events
           </h2>
-          <CategoryFilter selected={selectedCategory} onSelect={setSelectedCategory} />
+          <CategoryFilter categories={categories} selected={selectedCategory} onSelect={setSelectedCategory} />
         </motion.div>
 
         <div className="mt-10 flex gap-8">
           {/* Sidebar */}
           <div className="hidden lg:block w-72 shrink-0">
-            <FilterSidebar filters={sidebarFilters} onChange={setSidebarFilters} />
+            <FilterSidebar events={events} filters={sidebarFilters} onChange={setSidebarFilters} />
           </div>
 
           {/* Cards */}
           <div className="flex-1">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {filteredEvents.map((event, i) => (
-                <EventCard key={event.id} event={event} index={i} />
+                <EventCard key={event.eventID} event={event} index={i} />
               ))}
             </div>
 

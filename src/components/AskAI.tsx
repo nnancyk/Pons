@@ -22,26 +22,37 @@ const AskAI = () => {
     setQuery("");
     setIsLoading(true);
 
-    // Mock AI response for now
-    setTimeout(() => {
-      const responses: Record<string, string> = {
-        tech: "🤖 This week in tech: **Husky Robotics** has an Intro to ROS Workshop on Monday at 6 PM in CSE2 G01, and **ACM @ UW** hosts Competitive Programming Practice on Thursday at 5 PM in CSE1 305!",
-        volunteer: "🤝 **Huskies for Habitat** is hosting a Build Day on Saturday at 9 AM in Rainier Valley. Tools and lunch are provided — a great way to give back!",
-        cultural: "🎭 **FASA** is holding their Cultural Night Rehearsal on Tuesday at 7 PM in the HUB Ballroom. All performers are welcome to join!",
-        sports: "🧗 **UW Climbing Club** has a Bouldering Social every Wednesday at 5:30 PM at the IMA Climbing Wall. All skill levels welcome!",
-      };
+    try {
+      const res = await fetch("/api/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: question }),
+      });
+      const events = await res.json();
 
-      const lowerQ = question.toLowerCase();
-      let response = "Here are some events happening this week at UW! Try asking about specific categories like tech, cultural, sports, or volunteer events.";
-
-      if (lowerQ.includes("tech")) response = responses.tech;
-      else if (lowerQ.includes("volunteer") || lowerQ.includes("service")) response = responses.volunteer;
-      else if (lowerQ.includes("cultural")) response = responses.cultural;
-      else if (lowerQ.includes("sport") || lowerQ.includes("beginner")) response = responses.sports;
+      let response: string;
+      if (events.length === 0) {
+        response = "I couldn't find any events matching that. Try a different search!";
+      } else {
+        response = events
+          .slice(0, 5)
+          .map((e: { eventName: string; org: { orgName: string }; eventStart: string; location?: { locationName: string; locationRoom?: string } }) => {
+            const date = new Date(e.eventStart).toLocaleString("en-US", {
+              weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+            });
+            const loc = e.location ? `${e.location.locationName}${e.location.locationRoom ? " " + e.location.locationRoom : ""}` : "Virtual";
+            return `• ${e.eventName} — ${e.org.orgName}\n  ${date} @ ${loc}`;
+          })
+          .join("\n\n");
+        if (events.length > 5) response += `\n\n…and ${events.length - 5} more.`;
+      }
 
       setMessages((prev) => [...prev, { role: "ai", content: response }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "ai", content: "Something went wrong. Make sure the Flask server is running." }]);
+    } finally {
       setIsLoading(false);
-    }, 1200);
+    }
   };
 
   return (

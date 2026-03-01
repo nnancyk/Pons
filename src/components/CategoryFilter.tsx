@@ -1,11 +1,10 @@
-import { categories } from "@/data/events";
-
 interface CategoryFilterProps {
+  categories: string[];
   selected: string;
   onSelect: (category: string) => void;
 }
 
-const CategoryFilter = ({ selected, onSelect }: CategoryFilterProps) => {
+const CategoryFilter = ({ categories, selected, onSelect }: CategoryFilterProps) => {
   return (
     <div className="flex flex-wrap gap-2 justify-center">
       {categories.map((cat) => (
