@@ -36,37 +36,38 @@
         ]
     },
     {
-        "eventName": "Winter Quarter Makers Fair",
+        "eventName": "Prototyping Under Pressure: FigBuild Workshop",
         "org": {
-            "orgName": "advancing_husky_artistry",
+            "orgName": "cseeduw",
             "orgType": "RSO",
             "orgDesc": "University of Washington Club"
         },
-        "eventType": "Vendor Fair",
+        "eventType": "Workshop",
         "status": "confirmed",
-        "entryReq": "Free",
-        "eventDesc": "AHA will be vending at the Winter Quarter Makers Fair, selling a wide variety of crafts and merchandise made by club members.",
-        "eventStart": "2026-02-11T11:00:00",
-        "eventEnd": "2026-02-11T15:00:00",
+        "entryReq": "RSVP Required",
+        "eventDesc": "A high-energy figbuild workshop where participants build and refine prototypes under pressure, experiment with Figma Make, and enjoy Insomnia Cookies.",
+        "eventStart": "2026-03-03T17:45:00",
+        "eventEnd": null,
         "isVirtual": false,
         "virtualLink": null,
         "location": {
-            "locationName": "Husky Union Building",
-            "locationRoom": null,
+            "locationName": "Gould Hall",
+            "locationRoom": "322",
             "locationMap": ""
         },
         "tags": [
-            "crafts",
-            "merchandise",
-            "vendor fair",
-            "makers fair"
+            "design",
+            "figma",
+            "prototyping",
+            "workshop",
+            "cookies"
         ],
         "sources": [
             {
                 "sourceType": "instagram",
-                "sourceLink": "",
-                "externalID": "advancing_husky_artistry",
-                "rawPayload": "AHA will be vending at the Winter Quarter Makers Fair! Come check out our booth on February 11th from 11:00am to 3:00pm at the Husky Union Building! We will be selling a wide variety of crafts and merch made by our club members!"
+                "sourceLink": "https://figbuild2026.figma.site",
+                "externalID": "cseeduw",
+                "rawPayload": "cseed x figma @ uw are teaming up for a high-energy figbuild workshop. build and refine prototypes under pressure, experiment with figma make, and iterate toward a stronger ux, all in real time and enjoy some insomnia cookies!!"
             }
         ]
     },
