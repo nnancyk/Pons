@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
+# Pons
 
-## Project info
+A UW event platform that consolidates hundreds of club events from HuskyLink and Instagram into one searchable, AI-powered place.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+# Demo
+Click below to watch the demo!
+[![Watch the demo](https://img.youtube.com/vi/_atBalhvi04/maxresdefault.jpg)](https://www.youtube.com/watch?v=_atBalhvi04)
 
-## How can I edit this code?
+## Problem / Motivation
+- UW student org events are scattered across dozens of platforms — HuskyLink listings, individual club Instagram accounts, Discord servers, club websites — with no consistent format or single place to look
+- As a result, students miss out on events that actually match their social, academic, or professional interests simply because they never saw them
+- Pons consolidates that scattered event data into one searchable site, and helps strengthen the sense of community across UW clubs in the process
 
-There are several ways of editing your application.
+## Features
+- **HuskyLink scraping** — pulls the full list of UW student organizations and their linked Instagram accounts using Selenium
+- **Instagram scraping** — collects each club's posts (captions + images) via the Apify Instagram Scraper API
+- **AI-powered event extraction** — Claude analyzes post images and captions together to pull out structured event data: name, date/time, category, location, virtual/in-person, entry requirements
+- **AI-powered natural language search** — Claude is prompted with the event database and a user's query, using a ranking system that accounts for relevant synonyms (e.g. "hiking" also matches "outdoor") and relative time (e.g. "this weekend")
+- **Filterable frontend** — category and event-type filters, advanced search dialog, built with React + shadcn/ui
+- **SQLite storage** — extracted event data is loaded into a local database for fast querying
 
-**Use Lovable**
+## Tech Stack
+- **Frontend:** React, TypeScript, Vite, shadcn/ui, Tailwind CSS, TanStack Query, presented with Lovable
+- **Backend:** Python, Flask, SQLite
+- **Scraping:** Selenium + BeautifulSoup (HuskyLink), Apify Instagram Scraper API (Instagram)
+- **AI:** Anthropic API / Claude (multimodal event extraction from images + captions)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Setup
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 1. Clone and install the frontend
+```bash
+git clone https://github.com/nnancyk/Pons.git
+cd Pons
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### 2. Configure environment variables
+Create a `.env` file in the project root with your own Anthropic API key:
+```
+ANTHROPIC_API_KEY=your_key_here
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 3. Set up the backend
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-**Use GitHub Codespaces**
+cd backend
+python3 create_db.py   # builds the local SQLite database from data/uw_events_database.json
+python3 app.py          # starts the Flask API on http://127.0.0.1:5001
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 4. (Optional) Re-run the scrapers
+The scripts in `scrapers/` were used to originally build the dataset in `data/uw_events_database.json`. They require additional setup (an Apify API token, Chrome for Selenium) and aren't needed just to run the app — the pre-scraped dataset is already included.
 
-## What technologies are used for this project?
+## My Role
+I built the data collection pipeline:
+- Scraped HuskyLink for the full list of UW student organizations and their linked Instagram accounts, using Selenium
+- Scraped each club's Instagram posts (captions + images) via the Apify Instagram Scraper API
+- Used Claude to analyze post images and captions together, extracting structured event data (name, date, time, category, location, entry requirements) — including handling edge cases like skipping posts about events that had already passed, or that were recaps rather than announcements
+- Loaded the extracted event data into a SQLite database
 
-This project is built with:
+## Challenges & What I Learned
+- Got much more hands-on with how Selenium controls a browser for scraping, and with working the Apify platform for the Instagram side
+- Ran into the practical limits of scraping at scale firsthand — both the time cost of scraping and the constraints of API tokens
+- Was impressed by how well Claude could parse messy, unstructured Instagram captions and images into clean, structured event data
+- Working on an interdisciplinary team taught me how much scalability matters from the start, and how the story behind a project matters just as much as the technical side
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## What's Next
+- Discord and club website scraping, to widen event coverage beyond Instagram and HuskyLink
+- Add-to-calendar and RSVP/application flows
+- AI-powered recommendations based on a user's past attendance and feedback
+- A feedback loop for event planners to collect attendee input
+- Consolidated ratings for events and RSOs
+- Careful handling of the ethics of using publicly available social data — being thoughtful about what's scraped and how it's used, even when the source is public
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Team
+Pons was created in collaboration with Esther Carl, Ahmed Mrad, and Nelly Vasquez at the AI Student Collective's Hack to the Future 2026.
