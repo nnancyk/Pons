@@ -18,4 +18,4 @@ def events():
     return jsonify(get_all_events())
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5001) # dev only — disable debug mode before any real deployment

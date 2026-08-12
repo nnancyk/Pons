@@ -1,0 +1,11 @@
+flask
+anthropic
+python-dotenv
+pytz
+
+# Only needed if you run the scraper scripts (event_data_extractor.py,
+# huskylink_scraper.py, instagram_scraper.py):
+apify-client
+selenium
+beautifulsoup4
+pandas

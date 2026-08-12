@@ -7,4 +7,4 @@ if __name__ == "__main__":
         events = json.load(f)
         
     insert_events(events)
-    print("Database created with 6 mock events!")
+    print("Database created from uw_events_database.json!")
