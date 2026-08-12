@@ -3,7 +3,7 @@ import json
 
 if __name__ == "__main__":
     create_tables()
-    with open("uw_events_database.json", "r") as f:
+    with open("../data/uw_events_database.json", "r") as f:
         events = json.load(f)
         
     insert_events(events)

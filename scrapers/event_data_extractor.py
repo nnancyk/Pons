@@ -3,19 +3,22 @@ import json
 import anthropic
 import re
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# ⚠️ SECURITY: Reset your API key in the Anthropic dashboard! 
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR.parent / "data"
+
 client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 def parse_with_claude():
-    # Ensure this file exists in your directory
+    input_path = BASE_DIR / "raw_instagram_events.csv"
     try:
-        df = pd.read_csv("raw_instagram_events.csv")
+        df = pd.read_csv(input_path)
     except FileNotFoundError:
-        print("❌ Error: csv not found.")
+        print(f"❌ Error: csv not found at {input_path}")
         return
 
     final_json_output = []
@@ -54,7 +57,7 @@ def parse_with_claude():
 
         try:
             message = client.messages.create(
-                model="claude-haiku-4-5-20251001", 
+                model="claude-haiku-4-5-20251001",
                 max_tokens=1000,
                 system=system_msg,
                 messages=[
@@ -65,10 +68,10 @@ def parse_with_claude():
 
             # Reconstruct the JSON string
             raw_text = "{" + message.content[0].text
-            
+
             # Use Regex to extract the JSON block (handles 'Extra Data' errors)
             json_match = re.search(r'(\{.*\})', raw_text, re.DOTALL)
-            
+
             if json_match:
                 clean_json = json_match.group(1)
                 parsed_data = json.loads(clean_json)
@@ -87,10 +90,11 @@ def parse_with_claude():
             # Optional: print(f"Raw snippet: {message.content[0].text[:50]}")
 
     # Save to final file
-    with open("uw_events_database.json", "w") as f:
+    output_path = DATA_DIR / "uw_events_database.json"
+    with open(output_path, "w") as f:
         json.dump(final_json_output, f, indent=4)
-    
-    print(f"\n🚀 Done! Saved {len(final_json_output)} events to 'uw_events_database.json'")
+
+    print(f"\n🚀 Done! Saved {len(final_json_output)} events to '{output_path}'")
 
 if __name__ == "__main__":
     parse_with_claude()
